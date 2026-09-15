@@ -73,9 +73,20 @@
   .entry.car{--mode-color:#8C8272;}
   .entry.activity{--mode-color:#9C4A3B;}
 
+  .content-layout{display:grid; grid-template-columns:minmax(0,1fr) 250px; gap:32px; align-items:start;}
+  .greek-guide{position:sticky; top:24px; margin-top:56px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px; box-shadow:0 12px 30px -22px rgba(18,38,48,.5);}
+  .greek-guide .tag{font-family:'Space Mono', monospace; font-size:11px; color:var(--aegean-dark); letter-spacing:.12em; text-transform:uppercase;}
+  .greek-guide h2{font-size:1.45rem; margin:7px 0 6px;}
+  .greek-guide .intro{font-size:13px; line-height:1.45; color:var(--muted); margin:0 0 16px;}
+  .phrase{padding:12px 0; border-top:1px solid var(--line);}
+  .phrase span{display:block;}
+  .phrase .spanish{font-size:12px; color:var(--muted); margin-bottom:3px;}
+  .phrase .greek{font-family:'Fraunces', serif; font-size:1.13rem; font-weight:600; color:var(--aegean-dark);}
+  .phrase .phonetic{font-family:'Space Mono', monospace; font-size:11px; color:var(--ochre); margin-top:3px;}
   footer{max-width:1080px; margin:0 auto; padding: 20px 20px 60px; color:var(--muted); font-size:13px; border-top:1px solid var(--line);}
 
-  @media (max-width:640px){ header.hero{padding:44px 18px 32px;} }
+  @media (max-width:820px){.content-layout{grid-template-columns:1fr; gap:0;}.greek-guide{position:static; margin-top:40px;}.greek-guide .phrases{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:18px;}.phrase{min-width:0;}}
+  @media (max-width:640px){ header.hero{padding:44px 18px 32px;}.greek-guide .phrases{grid-template-columns:1fr;} }
 </style>
 </head>
 <body>
@@ -98,6 +109,8 @@
 </header>
 
 <main>
+  <div class="content-layout">
+    <div class="content-main">
   <section class="block" id="mapa">
     <div class="heading"><span class="tag">01</span><h2>La ruta por las islas</h2></div>
     <p class="lede">Del 21 al 29 de septiembre, saltando de isla en isla: en avión hasta Santorini y en ferri el resto del camino, de vuelta a Atenas.</p>
@@ -203,6 +216,20 @@
     <p class="lede">Todas las reservas, en el orden en que ocurren.</p>
     <div class="logbook" id="logbook"></div>
   </section>
+    </div>
+    <aside class="greek-guide" aria-labelledby="greek-guide-title">
+      <span class="tag">Guía rápida</span>
+      <h2 id="greek-guide-title">Habla griego</h2>
+      <p class="intro">Frases útiles para el viaje, con pronunciación aproximada en español.</p>
+      <div class="phrases">
+        <div class="phrase"><span class="spanish">Hola</span><span class="greek">Γεια σας</span><span class="phonetic">yá sas</span></div>
+        <div class="phrase"><span class="spanish">Gracias</span><span class="greek">Ευχαριστώ</span><span class="phonetic">efjaristó</span></div>
+        <div class="phrase"><span class="spanish">Muchas gracias</span><span class="greek">Ευχαριστώ πολύ</span><span class="phonetic">efjaristó polí</span></div>
+        <div class="phrase"><span class="spanish">Adiós</span><span class="greek">Αντίο</span><span class="phonetic">adío</span></div>
+        <div class="phrase"><span class="spanish">Buenos días</span><span class="greek">Καλημέρα</span><span class="phonetic">kaliméra</span></div>
+      </div>
+    </aside>
+  </div>
 </main>
 
 <footer>La carta de navegación es esquemática (no a escala geográfica exacta), pero las posiciones relativas de cada parada respetan la geografía real.</footer>
